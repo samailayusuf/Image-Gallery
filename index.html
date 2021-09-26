@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Image Gallery</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" />
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: 'Lato', sans-serif;
+        }
+        h2{
+            text-align: center;
+        }
+        .gallery-container{
+            min-height: 90vh;
+            border: 1px solid green;
+            margin:5px;
+        }
+        .default-image{
+            width:100%;
+            height: 400px;
+        }
+
+        .default-image img{
+            width:100%;
+            height: 100%;
+        }
+        .thumbnails{
+            display:flex;
+            width: 100%;
+            height: 100%;
+            overflow-x: scroll;
+        }
+        .img-container{
+            display:flex;
+            justify-content:space-around;
+            min-width: 200px;
+            min-height: 200px;
+            overflow-x: hidden;
+        }
+        .img-container img{
+            width: 100%;
+            height: 100%;
+        }
+        .modal{
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.7);
+            top:0;
+            left:0;
+            width:100%;
+            height: 100%;
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            transition: all ease-in 0.5s;
+        }
+        .modal img{
+            width: 70%;
+            height: auto;
+        }
+        .invisible{
+            visibility: hidden;
+        }
+        .fas{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+        
+    </style>
+
+</head>
+<body>
+
+    <h2>My Images</h2>
+
+    <div class="gallery-container">
+        <div class="default-image">
+        </div>
+        <div class="thumbnails">
+
+        </div>
+
+        <div class="modal invisible" onclick="hideModal()" id="modal-container">
+            <!--- I initialized event-stopPropagation on the image 
+            So that when the image gets a click the modal will not close the
+            That way only the the background and the close icon can be used to
+            close the modal-->
+            <img src="" alt="" class="modal-image" onclick="event.stopPropagation()"/>
+            <span style='color:white;size:22px;'><i class="fas fa-times-circle fa-3x"></i></span>
+        </div>
+
+    </div>
+    
+    <script src="js/index.js">
+
+    </script>
+</body>
+</html>
